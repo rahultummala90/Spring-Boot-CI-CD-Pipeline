@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/navitas")
 public class HelloController {
-	
-	@GetMapping
-	public String sayHi() {
-		return "Hello Navitas.";
-	}
+
+    @GetMapping
+    public String sayHi() {
+        return "Hello Navitas.";
+    }
 
 }
