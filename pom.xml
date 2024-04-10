@@ -14,7 +14,7 @@
 	<name>navitas-spring-boot-2</name>
 	<description>Navitas Spring Boot Deploy</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>22</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
