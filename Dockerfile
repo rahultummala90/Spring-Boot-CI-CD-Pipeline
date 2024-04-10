@@ -1,5 +1,5 @@
 # FROM lolhens/baseimage-openjre
-FROM adoptopenjdk/openjdk17:alpine
+FROM openjdk:17-oracle
 ADD target/navitas-spring-boot-2.jar navitas-spring-boot-2.jar
 EXPOSE 80
 ENTRYPOINT ["mvn", "clean", "install"]
