@@ -1,4 +1,4 @@
 FROM lolhens/baseimage-openjre
-ADD target/springbootApp.jar springbootApp.jar
+ADD target/navitas-spring-boot-2.jar navitas-spring-boot-2.jar
 EXPOSE 80
-ENTRYPOINT ["java", "-jar", "springbootApp.jar"]
+ENTRYPOINT ["java", "-jar", "navitas-spring-boot-2.jar"]
