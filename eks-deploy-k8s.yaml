@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: navitas-spring-boot-2
+  name: navitas-spring-boot-2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: navitas-spring-boot-2
+  template:
+    metadata:
+      labels:
+        app: navitas-spring-boot-2
+    spec:
+      containers:
+        - name: my-navitas-spring-boot-2
+          image: 161179166305.dkr.ecr.us-east-1.amazonaws.com/navitas-spring-boot-2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
+              name: http
+              protocol: TCP
+# service type loadbalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: navitas-spring-boot-2
+    k8s-app: navitas-spring-boot-2
+  name: navitas-spring-boot-2
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8085
+  type: LoadBalancer
+  selector:
+    app: navitas-spring-boot-2

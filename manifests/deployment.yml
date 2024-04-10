@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: navitas-spring-boot-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: navitas-spring-boot-2
+  template:
+    metadata:
+      labels:
+        app: navitas-spring-boot-2
+    spec:
+      containers:
+        - name: navitas-spring-boot-2
+          image: 161179166305.dkr.ecr.us-east-1.amazonaws.com/navitas-spring-boot-2
+          ports:
+            - containerPort: 80
