@@ -1,14 +1,16 @@
 # Use OpenJDK 17
 FROM openjdk:17-oracle
 
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    rm -rf /var/lib/apt/lists/*
+
 # Add the JAR file to the container
 ADD target/navitas-spring-boot-2.jar navitas-spring-boot-2.jar
 
 # Expose port 80
 EXPOSE 80
-
-# Run Maven clean install
-RUN mvn clean install
 
 # Set the entrypoint to run the JAR file
 ENTRYPOINT ["java", "-jar", "navitas-spring-boot-2.jar"]
