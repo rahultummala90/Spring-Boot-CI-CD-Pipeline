@@ -1,10 +1,9 @@
-# Use OpenJDK 17
-FROM openjdk:17-oracle
+# Use OpenJDK 17 on Alpine
+FROM adoptopenjdk/openjdk17:alpine
 
 # Install Maven
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+    apk add --no-cache maven
 
 # Add the JAR file to the container
 ADD target/navitas-spring-boot-2.jar navitas-spring-boot-2.jar
@@ -16,7 +15,7 @@ EXPOSE 80
 ENTRYPOINT ["java", "-jar", "navitas-spring-boot-2.jar"]
 
 # Allow Jenkins user to run sudo commands
-RUN useradd -m -s /bin/bash jenkins && \
+RUN adduser -D -u 1000 jenkins && \
     echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Create .bashrc for Jenkins user and add alias
