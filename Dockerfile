@@ -6,7 +6,7 @@ ENTRYPOINT ["mvn", "clean", "install"]
 ENTRYPOINT ["java", "-jar", "navitas-spring-boot-2.jar"]
 
 # Add Jenkins user and grant sudo privileges
-RUN adduser -D -u 1000 jenkins && \
+RUN adduser -u 1000 jenkins && \
     echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Create Jenkins user's home directory and .bashrc file
