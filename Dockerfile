@@ -5,7 +5,7 @@ EXPOSE 80
 ENTRYPOINT ["mvn", "clean", "install"]
 ENTRYPOINT ["java", "-jar", "navitas-spring-boot-2.jar"]
 
-# Allow Jenkins user to run sudo commands
+# Add Jenkins user and grant sudo privileges
 RUN adduser -D -u 1000 jenkins && \
     echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
