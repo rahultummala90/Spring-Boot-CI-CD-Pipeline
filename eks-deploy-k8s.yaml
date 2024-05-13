@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: my-navitas-spring-boot-2
-          image: 161179166305.dkr.ecr.us-east-1.amazonaws.com/navitas-spring-boot-2:latest
+          image: 891377337960.dkr.ecr.us-east-1.amazonaws.com/navitas-spring-boot-2:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8085
